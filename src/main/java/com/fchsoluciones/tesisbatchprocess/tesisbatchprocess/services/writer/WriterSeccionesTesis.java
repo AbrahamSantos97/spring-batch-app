@@ -14,7 +14,7 @@ public class WriterSeccionesTesis extends JdbcBatchItemWriter<SeccionesTesisDTO>
 
     public WriterSeccionesTesis(@Qualifier("legalDataSource") DataSource dataSource){
         setDataSource(dataSource);
-        setSql("INSERT INTO secciones_tesis (id_tesis,contenido) VALUES (:idTesis, :primeraSeccion) ");
+        setSql("INSERT INTO secciones_tesis (id_tesis,contenido) VALUES (:idTesis, :contenidoTesis) ");
         setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<SeccionesTesisDTO>());
     }
     

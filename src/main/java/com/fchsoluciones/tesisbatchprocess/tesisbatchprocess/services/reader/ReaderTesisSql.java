@@ -14,7 +14,7 @@ public class ReaderTesisSql extends JdbcCursorItemReader<Tesis> {
     public ReaderTesisSql(@Qualifier("legalDataSource")DataSource dataSource) {
         setDataSource(dataSource);
         setSql("SELECT id_tesis AS idTesis, registro_digital AS registroDigital, instancia, epoca, ntesis, fuente,"+
-        " tipo, rubro FROM tesis_pruebas ORDER BY id_tesis DESC LIMIT 1000");
+        " tipo, rubro FROM tesis_bot ORDER BY id_tesis DESC LIMIT 1000");
         BeanPropertyRowMapper<Tesis> rowMapper = new BeanPropertyRowMapper<Tesis>();
         rowMapper.setMappedClass(Tesis.class);
         setRowMapper(rowMapper);

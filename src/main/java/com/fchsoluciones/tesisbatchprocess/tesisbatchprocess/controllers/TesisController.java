@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fchsoluciones.tesisbatchprocess.tesisbatchprocess.mappers.CreateProxyTesis;
+import com.fchsoluciones.tesisbatchprocess.tesisbatchprocess.models.dto.RelacionesTesisDTO;
 import com.fchsoluciones.tesisbatchprocess.tesisbatchprocess.models.dto.TesisDTO;
 
 import java.util.Collections;
@@ -30,6 +31,11 @@ public class TesisController {
        createProxyTesis.proxyToStartAsyncJob(tesisDto);
         return ResponseEntity.ok(Collections.singletonMap("created",Boolean.TRUE));
     }
-    
+
+    @PostMapping("/relaciones")
+    public ResponseEntity<Map<String,Object>> saveRelations(@RequestBody List<RelacionesTesisDTO> relacionesTesis){
+        createProxyTesis.proxyToStartAsyncSaveRelations(relacionesTesis);
+        return ResponseEntity.ok(Collections.singletonMap("created",Boolean.TRUE));
+    }
     
 }
